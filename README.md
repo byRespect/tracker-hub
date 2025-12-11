@@ -56,9 +56,7 @@
 ## 🖼️ Demo
 
 <p align="center">
-  <video width="100%" height="100%" controls>
-    <source src="docs/screenshots/screen-capture.mp4" type="video/mp4">
-  </video>
+  <img src="docs/screenshots/dashboard.gif" alt="Dashboard Preview" width="100%">
 </p>
 
 ---
