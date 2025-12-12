@@ -1,0 +1,86 @@
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7
+    container_name: tracker-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: trackr
+      MONGO_INITDB_ROOT_PASSWORD: trackr
+      MONGO_INITDB_DATABASE: trackrdb
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27018:27017"  # Use 27018 externally to avoid conflicts
+    networks:
+      - tracker-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # NestJS Backend API
+  backend:
+    build:
+      context: .
+      dockerfile: packages/backend/Dockerfile
+    container_name: tracker-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 1337
+      HOST: 0.0.0.0
+      MONGO_URI: mongodb://trackr:trackr@mongodb:27017/trackrdb?authSource=admin
+    ports:
+      - "1337:1337"
+    networks:
+      - tracker-network
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:1337/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # React Frontend (Demo App)
+  frontend:
+    build:
+      context: .
+      dockerfile: packages/frontend/Dockerfile
+    container_name: tracker-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    networks:
+      - tracker-network
+    depends_on:
+      - backend
+
+  # React Dashboard (Admin Panel)
+  dashboard:
+    build:
+      context: .
+      dockerfile: packages/dashboard/Dockerfile
+      args:
+        VITE_API_URL: http://localhost:1337
+    container_name: tracker-dashboard
+    restart: unless-stopped
+    ports:
+      - "3001:80"
+    networks:
+      - tracker-network
+    depends_on:
+      - backend
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  tracker-network:
+    driver: bridge
