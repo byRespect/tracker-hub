@@ -12,6 +12,8 @@ jobs:
   dependency-review:
     name: Review Dependencies
     runs-on: ubuntu-latest
+    # Only run on public repos or repos with Dependency Graph enabled
+    if: github.repository_visibility == 'public'
     
     steps:
       - name: Checkout repository
@@ -22,4 +24,4 @@ jobs:
         with:
           fail-on-severity: high
           deny-licenses: GPL-3.0, AGPL-3.0
-          comment-summary-in-pr: always
+          comment-summary-in-pr: on-failure
