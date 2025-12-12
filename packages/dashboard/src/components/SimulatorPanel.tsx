@@ -623,31 +623,43 @@ const WebSocketSimulator: React.FC<{ prefillData?: SimulationPreset | null }> = 
         return logs.filter(l => l.msg.toLowerCase().includes(term) || (l.detail && l.detail.toLowerCase().includes(term)) || l.type.includes(term));
     }, [logs, logSearch]);
 
-    // ... (useEffect, addLog, handleConnect, handleSend, tryParseJson same as before) ...
+    // Helper to safely detect Socket.IO path from URL
+    const isSocketIOPath = (urlString: string): boolean => {
+        try {
+            const parsed = new URL(urlString);
+            // Only match if pathname starts with /socket.io (standard Socket.IO path)
+            return parsed.pathname === '/socket.io' || parsed.pathname.startsWith('/socket.io/');
+        } catch {
+            return false;
+        }
+    };
+
+    // Helper to safely detect SignalR path from URL
+    const isSignalRPath = (urlString: string): boolean => {
+        try {
+            const parsed = new URL(urlString);
+            const pathLower = parsed.pathname.toLowerCase();
+            // Match common SignalR hub patterns
+            return pathLower.includes('/hub') || pathLower.includes('/signalr');
+        } catch {
+            return false;
+        }
+    };
+
     useEffect(() => {
         if (prefillData && (prefillData.url.startsWith('ws') || prefillData.url.includes('socket') || prefillData.url.includes('hub'))) {
             setUrl(prefillData.url);
             let protocolSet = false;
-            try {
-                const parsed = new URL(prefillData.url);
-                // Set as SOCKET_IO if path starts with /socket.io (the standard socket.io path)
-                if (parsed.pathname.startsWith('/socket.io')) {
-                    setProtocol('SOCKET_IO');
-                    protocolSet = true;
-                } else if (parsed.pathname.includes('hub') || parsed.pathname.toLowerCase().includes('signalr')) {
-                    setProtocol('SIGNAL_R');
-                    protocolSet = true;
-                }
-            } catch (e) {
-                // fallback to substring matching if URL parsing fails (rare)
-                if (prefillData.url.includes('socket.io')) {
-                    setProtocol('SOCKET_IO');
-                    protocolSet = true;
-                } else if (prefillData.url.includes('hub') || prefillData.url.toLowerCase().includes('signalr')) {
-                    setProtocol('SIGNAL_R');
-                    protocolSet = true;
-                }
+            
+            // Use safe URL parsing to detect protocol type
+            if (isSocketIOPath(prefillData.url)) {
+                setProtocol('SOCKET_IO');
+                protocolSet = true;
+            } else if (isSignalRPath(prefillData.url)) {
+                setProtocol('SIGNAL_R');
+                protocolSet = true;
             }
+            
             if (!protocolSet) setProtocol('WS');
             if (prefillData.body) setMessage(typeof prefillData.body === 'object' ? JSON.stringify(prefillData.body) : String(prefillData.body));
         }
