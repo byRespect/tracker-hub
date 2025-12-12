@@ -46,6 +46,29 @@ export function SessionProvider({ children }: SessionProviderProps) {
   const [state, dispatch] = useReducer(sessionReducer, initialState);
 
   /**
+   * Generates a cryptographically secure random string of given length, using base-36 chars.
+   */
+  function generateSecureId(length: number): string {
+    const bytes = new Uint8Array(length);
+    window.crypto.getRandomValues(bytes);
+    // Convert each byte to base36 char: '0'-'9','a'-'z' (36 chars)
+    // Use only values < 36 to avoid modulo bias
+    let chars = '';
+    for (let i = 0; i < bytes.length; ) {
+      const val = bytes[i] % 36;
+      // Accept byte if within 0..251 to limit bias (since 252 is divisible by 36)
+      if (bytes[i] < 252) {
+        chars += val.toString(36);
+        i++;
+      } else {
+        // re-generate this byte
+        window.crypto.getRandomValues(bytes.subarray(i, i+1));
+      }
+    }
+    return chars;
+  }
+
+  /**
    * Global istatistikleri API'den getirir
    */
   const fetchGlobalStats = useCallback(async () => {
@@ -94,7 +117,7 @@ export function SessionProvider({ children }: SessionProviderProps) {
    * Yeni session oluşturur
    */
   const createSession = useCallback(async (name: string) => {
-    const newSessionId = Math.random().toString(36).substring(2, 11);
+    const newSessionId = generateSecureId(9); // 9 chars to match previous substring length
     
     const payload: Partial<Session> = {
       id: newSessionId,
@@ -108,7 +131,7 @@ export function SessionProvider({ children }: SessionProviderProps) {
       userAgent: navigator.userAgent,
       url: window.location.href,
       user: {
-        id: `user-${Math.floor(Math.random() * 1000)}`,
+        id: `user-${generateSecureId(4)}`, // Optional: make user id secure too (4 chars for ~10000 possible values)
         email: 'dev@example.com',
         name,
       },

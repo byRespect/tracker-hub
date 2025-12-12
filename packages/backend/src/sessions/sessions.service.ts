@@ -368,12 +368,28 @@ export class SessionsService {
     };
   }
 
+  // Helper function to pick only allowed fields
+  private pick(obj: Record<string, any>, allowed: string[]): Record<string, any> {
+    return Object.keys(obj)
+      .filter(key => allowed.includes(key))
+      .reduce((acc, key) => {
+        acc[key] = obj[key];
+        return acc;
+      }, {} as Record<string, any>);
+  }
+
   async update(
     id: string,
     updateSessionDto: UpdateSessionDto,
   ): Promise<Session> {
+    // Define the list of fields that are safe to update
+    const allowedFields = [
+      // TODO: Replace with the actual allowed UpdateSessionDto fields, such as:
+      "field1", "field2", "field3"
+    ];
+    const safeUpdate = this.pick(updateSessionDto, allowedFields);
     const updated = await this.sessionModel
-      .findByIdAndUpdate(id, updateSessionDto, { new: true })
+      .findByIdAndUpdate(id, safeUpdate, { new: true })
       .exec();
     if (!updated) {
       throw new NotFoundException(`Session with id ${id} not found`);
