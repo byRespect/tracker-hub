@@ -60,12 +60,15 @@ jobs:
         working-directory: packages/core
         run: pnpm pack
 
-      - name: Find and rename package file
+      - name: Verify package file
         working-directory: packages/core
         run: |
           PKG_FILE=$(ls *.tgz | head -1)
           echo "Found package: $PKG_FILE"
-          mv "$PKG_FILE" tracker-core-${{ steps.version.outputs.version }}.tgz
+          TARGET_NAME="tracker-core-${{ steps.version.outputs.version }}.tgz"
+          if [ "$PKG_FILE" != "$TARGET_NAME" ]; then
+            mv "$PKG_FILE" "$TARGET_NAME"
+          fi
           ls -la *.tgz
 
       - name: Generate changelog
