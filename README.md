@@ -37,28 +37,28 @@
   <a href="#-installation">Installation</a> •
   <a href="#-docker">Docker</a> •
   <a href="#-usage">Usage</a> •
-  <a href="#-architecture">Architecture</a> •
+  <a href="#️-architecture">Architecture</a> •
   <a href="#-contributing">Contributing</a>
 </p>
 
 ---
 
-##  Features
+## ✨ Features
 
-###  Core Tracker
+### 📦 Core Tracker
 - **Session Recording** - Capture DOM changes with rrweb
 - **Console Logging** - Intercept all console output
 - **Network Monitoring** - Track HTTP requests
 - **Error Tracking** - Automatic JavaScript error capture
 
-###  Dashboard
+### 📊 Dashboard
 - **Session Replay** - Watch user sessions like a video
 - **Real-time Analytics** - Live metrics and statistics
 - **Network Inspector** - Detailed HTTP request analysis
 - **Console Viewer** - Filter and search log entries
 - **API Simulator** - Request testing tool
 
-###  Backend
+### ⚡ Backend
 - **RESTful API** - Robust API with NestJS
 - **MongoDB Storage** - Flexible data storage
 - **Pagination** - Handle large datasets efficiently
@@ -66,7 +66,7 @@
 
 ---
 
-##  Demo
+## 🎬 Demo
 
 <p align="center">
   <img src="docs/screenshots/dashboard.gif" alt="Dashboard Preview" width="100%">
@@ -74,7 +74,7 @@
 
 ---
 
-##  Installation
+## 🚀 Installation
 
 ### Requirements
 
@@ -180,7 +180,7 @@ curl http://localhost:3001/health
 
 ---
 
-##  Usage
+## 💻 Usage
 
 ### Development
 
@@ -226,7 +226,7 @@ tracker.stop();
 
 ---
 
-##  Architecture
+## 🏗️ Architecture
 
 ```
 tracker-hub/
@@ -272,7 +272,7 @@ tracker-hub/
 
 ---
 
-##  Configuration
+## ⚙️ Configuration
 
 ### Environment Variables
 
@@ -319,7 +319,7 @@ docker run -d --name mongodb -p 27017:27017 mongo:7
 
 ---
 
-##  API Reference
+## 📚 API Reference
 
 ### Sessions
 
@@ -334,7 +334,7 @@ docker run -d --name mongodb -p 27017:27017 mongo:7
 
 ---
 
-##  Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
@@ -346,13 +346,13 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for de
 
 ---
 
-##  License
+## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-##  Acknowledgments
+## 🙏 Acknowledgments
 
 - [rrweb](https://github.com/rrweb-io/rrweb) - Session replay technology
 - [NestJS](https://nestjs.com/) - Backend framework
@@ -362,5 +362,5 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  Made with  in Turkey
+  Made with ❤️ in Turkey
 </p>
