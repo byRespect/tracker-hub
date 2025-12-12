@@ -1,17 +1,17 @@
-# Tracker Hub - Copilot Instructions
+﻿# Tracker Hub - Copilot Instructions
 
-## Proje Hakkında
+## About the Project
 
-Tracker Hub, kullanıcı oturumlarını kaydeden ve analiz eden bir telemetri platformudur.
+Tracker Hub is a telemetry platform that records and analyzes user sessions.
 
-## Monorepo Yapısı
+## Monorepo Structure
 
-- `packages/core` - TypeScript tracker kütüphanesi
-- `packages/frontend` - React demo uygulaması
-- `packages/backend` - NestJS API sunucusu
-- `packages/dashboard` - React admin paneli
+- `packages/core` - TypeScript tracker library
+- `packages/frontend` - React demo application
+- `packages/backend` - NestJS API server
+- `packages/dashboard` - React admin panel
 
-## Teknolojiler
+## Technologies
 
 - **Package Manager**: pnpm (workspace)
 - **Build**: TypeScript, Vite
@@ -19,43 +19,42 @@ Tracker Hub, kullanıcı oturumlarını kaydeden ve analiz eden bir telemetri pl
 - **Backend**: NestJS, MongoDB
 - **Session Replay**: rrweb
 
-## Geliştirme Komutları
+## Development Commands
 
 ```bash
-# Tüm paketleri derle
+# Build all packages
 pnpm build
 
-# Dashboard geliştirme
+# Dashboard development
 pnpm --filter dashboard dev
 
-# Backend başlat
+# Start backend
 pnpm --filter backend start:dev
 ```
 
-## Kod Standartları
+## Code Standards
 
 - TypeScript strict mode
-- Türkçe yorumlar, İngilizce teknik terimler
-- Component'ler için React.FC<Props> pattern
-- API çağrıları api/ klasöründen
-- State yönetimi store/ klasöründen
+- Use React.FC<Props> pattern for components
+- API calls from api/ directory
+- State management from store/ directory
 
-## Dashboard Mimarisi
+## Dashboard Architecture
 
 ```
 dashboard/src/
-├── api/        # HTTP client, endpoints
-├── components/ # React bileşenleri
-├── config/     # Uygulama ayarları
-├── hooks/      # Custom hooks
-├── store/      # Context + Reducer
-├── types/      # TypeScript tipleri
-└── utils/      # Yardımcı fonksiyonlar
+ api/        # HTTP client, endpoints
+ components/ # React components
+ config/     # Application settings
+ hooks/      # Custom hooks
+ store/      # Context + Reducer
+ types/      # TypeScript types
+ utils/      # Utility functions
 ```
 
-## Kurallar
+## Guidelines
 
-- classnames ve style'ları değiştirme (Tailwind sınıfları)
-- Yeni component eklerken types/ altına tip tanımı ekle
-- API çağrısı eklerken api/sessions.ts'e endpoint ekle
-- Hook eklerken hooks/index.ts'den export et
+- Do not modify classnames or styles (Tailwind classes)
+- Add type definitions under types/ when creating new components
+- Add endpoints to api/sessions.ts when adding API calls
+- Export hooks from hooks/index.ts

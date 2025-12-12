@@ -1,40 +1,40 @@
----
+﻿---
 name: Bug Report
-about: Bir hata bildirmek için bu şablonu kullanın
+about: Use this template to report a bug
 title: '[BUG] '
 labels: bug
 assignees: ''
 ---
 
-## 🐛 Bug Açıklaması
+## Bug Description
 
-Net ve kısa bir açıklama yapın.
+Provide a clear and concise description.
 
-## 📋 Reproduce Adımları
+## Steps to Reproduce
 
-1. '...' sayfasına gidin
-2. '...' butonuna tıklayın
-3. Aşağı kaydırın
-4. Hatayı görün
+1. Go to '...'
+2. Click on '...'
+3. Scroll down
+4. See the error
 
-## ✅ Beklenen Davranış
+## Expected Behavior
 
-Ne olması gerektiğini açıklayın.
+Describe what you expected to happen.
 
-## ❌ Gerçekleşen Davranış
+## Actual Behavior
 
-Gerçekte ne olduğunu açıklayın.
+Describe what actually happened.
 
-## 📸 Ekran Görüntüleri
+## Screenshots
 
-Varsa ekran görüntüleri ekleyin.
+Add screenshots if available.
 
-## 🔧 Ortam
+## Environment
 
-- **OS**: [örn. Windows 11]
-- **Browser**: [örn. Chrome 120]
-- **Tracker Hub Version**: [örn. 2.4.0]
+- **OS**: [e.g., Windows 11]
+- **Browser**: [e.g., Chrome 120]
+- **Tracker Hub Version**: [e.g., 1.0.0]
 
-## 📝 Ek Notlar
+## Additional Notes
 
-Eklemek istediğiniz başka bilgiler.
+Any other information you want to add.

@@ -1,4 +1,4 @@
-<p align="center">
+﻿<p align="center">
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
   <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS">
@@ -6,19 +6,19 @@
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
 </p>
 
-<h1 align="center">🔍 Tracker Hub</h1>
+<h1 align="center"> Tracker Hub</h1>
 
 <p align="center">
-  <strong>Kullanıcı oturumlarını kaydeden ve analiz eden güçlü bir telemetri platformu</strong>
+  <strong>A powerful telemetry platform for recording and analyzing user sessions</strong>
 </p>
 
 <p align="center">
-  <a href="#-özellikler">Özellikler</a> •
-  <a href="#-demo">Demo</a> •
-  <a href="#-kurulum">Kurulum</a> •
-  <a href="#-kullanım">Kullanım</a> •
-  <a href="#-mimari">Mimari</a> •
-  <a href="#-katkıda-bulunma">Katkıda Bulunma</a>
+  <a href="#-features">Features</a> 
+  <a href="#-demo">Demo</a> 
+  <a href="#-installation">Installation</a> 
+  <a href="#-usage">Usage</a> 
+  <a href="#-architecture">Architecture</a> 
+  <a href="#-contributing">Contributing</a>
 </p>
 
 <p align="center">
@@ -30,30 +30,30 @@
 
 ---
 
-## ✨ Özellikler
+##  Features
 
-### 🎯 Core Tracker
-- **Session Recording** - rrweb ile DOM değişikliklerinin kaydı
-- **Console Logging** - Tüm console çıktılarının yakalanması
-- **Network Monitoring** - HTTP isteklerinin izlenmesi
-- **Error Tracking** - JavaScript hatalarının otomatik yakalanması
+###  Core Tracker
+- **Session Recording** - Capture DOM changes with rrweb
+- **Console Logging** - Intercept all console output
+- **Network Monitoring** - Track HTTP requests
+- **Error Tracking** - Automatic JavaScript error capture
 
-### 📊 Dashboard
-- **Session Replay** - Kullanıcı oturumlarını video gibi izleme
-- **Real-time Analytics** - Canlı metrik ve istatistikler
-- **Network Inspector** - HTTP isteklerinin detaylı analizi
-- **Console Viewer** - Log kayıtlarının filtrelenmesi ve aranması
-- **API Simulator** - Request test aracı
+###  Dashboard
+- **Session Replay** - Watch user sessions like a video
+- **Real-time Analytics** - Live metrics and statistics
+- **Network Inspector** - Detailed HTTP request analysis
+- **Console Viewer** - Filter and search log entries
+- **API Simulator** - Request testing tool
 
-### 🚀 Backend
-- **RESTful API** - NestJS ile güçlü API
-- **MongoDB Storage** - Esnek veri depolama
-- **Pagination** - Büyük veri setleri için sayfalama
-- **Global Stats** - Tüm session'lar için istatistikler
+###  Backend
+- **RESTful API** - Robust API with NestJS
+- **MongoDB Storage** - Flexible data storage
+- **Pagination** - Handle large datasets efficiently
+- **Global Stats** - Statistics across all sessions
 
 ---
 
-## 🖼️ Demo
+##  Demo
 
 <p align="center">
   <img src="docs/screenshots/dashboard.gif" alt="Dashboard Preview" width="100%">
@@ -61,59 +61,59 @@
 
 ---
 
-## 📦 Kurulum
+##  Installation
 
-### Gereksinimler
+### Requirements
 
 - **Node.js** >= 18.x
 - **pnpm** >= 8.x
 - **MongoDB** >= 6.x
 
-### Adımlar
+### Steps
 
 ```bash
-# Repository'yi klonla
+# Clone the repository
 git clone https://github.com/byRespect/tracker-hub.git
 cd tracker-hub
 
-# Bağımlılıkları yükle
+# Install dependencies
 pnpm install
 
-# Environment dosyasını oluştur
+# Create environment file
 cp .env.example .env
 
-# Tüm paketleri derle
+# Build all packages
 pnpm build
 ```
 
 ---
 
-## 🚀 Kullanım
+##  Usage
 
 ### Development
 
 ```bash
-# Backend'i başlat
+# Start the backend
 pnpm --filter backend start:dev
 
-# Dashboard'u başlat
+# Start the dashboard
 pnpm --filter dashboard dev
 
-# Frontend demo'yu başlat
+# Start the frontend demo
 pnpm --filter frontend dev
 ```
 
 ### Production
 
 ```bash
-# Tüm paketleri derle
+# Build all packages
 pnpm build
 
-# Backend'i production modunda başlat
+# Start backend in production mode
 pnpm --filter backend start:prod
 ```
 
-### Tracker Entegrasyonu
+### Tracker Integration
 
 ```typescript
 import { TrackerBuilder } from '@tracker-hub/core';
@@ -125,54 +125,54 @@ const tracker = new TrackerBuilder()
   .withRrwebRecorder()
   .build();
 
-// Tracking'i başlat
+// Start tracking
 tracker.start();
 
-// İsteğe bağlı: Tracking'i durdur
+// Optional: Stop tracking
 tracker.stop();
 ```
 
 ---
 
-## 🏗️ Mimari
+##  Architecture
 
 ```
 tracker-hub/
-├── packages/
-│   ├── core/           # TypeScript tracker kütüphanesi
-│   │   ├── src/
-│   │   │   ├── core/       # Session yönetimi
-│   │   │   ├── logger/     # Console, Network, DOM loggers
-│   │   │   └── shared/     # Ortak tipler ve yardımcılar
-│   │   └── package.json
-│   │
-│   ├── dashboard/      # React admin paneli
-│   │   ├── src/
-│   │   │   ├── api/        # HTTP client ve endpoint'ler
-│   │   │   ├── components/ # React bileşenleri
-│   │   │   ├── hooks/      # Custom hook'lar
-│   │   │   ├── store/      # Context + Reducer state
-│   │   │   └── types/      # TypeScript tipleri
-│   │   └── package.json
-│   │
-│   ├── backend/        # NestJS API sunucusu
-│   │   ├── src/
-│   │   │   ├── config/     # Uygulama yapılandırması
-│   │   │   ├── sessions/   # Session CRUD işlemleri
-│   │   │   └── infrastructure/
-│   │   └── package.json
-│   │
-│   └── frontend/       # React demo uygulaması
-│       └── src/
-│
-├── pnpm-workspace.yaml
-└── package.json
+ packages/
+    core/           # TypeScript tracker library
+       src/
+          core/       # Session management
+          logger/     # Console, Network, DOM loggers
+          shared/     # Common types and utilities
+       package.json
+   
+    dashboard/      # React admin panel
+       src/
+          api/        # HTTP client and endpoints
+          components/ # React components
+          hooks/      # Custom hooks
+          store/      # Context + Reducer state
+          types/      # TypeScript types
+       package.json
+   
+    backend/        # NestJS API server
+       src/
+          config/     # Application configuration
+          sessions/   # Session CRUD operations
+          infrastructure/
+       package.json
+   
+    frontend/       # React demo application
+        src/
+
+ pnpm-workspace.yaml
+ package.json
 ```
 
-### Teknoloji Stack
+### Technology Stack
 
-| Katman | Teknolojiler |
-|--------|-------------|
+| Layer | Technologies |
+|-------|--------------|
 | **Frontend** | React 19, TypeScript, Tailwind CSS v4, Vite |
 | **Backend** | NestJS, Fastify, MongoDB, Mongoose |
 | **Tracker** | rrweb, TypeScript |
@@ -180,7 +180,7 @@ tracker-hub/
 
 ---
 
-## 🔧 Yapılandırma
+##  Configuration
 
 ### Environment Variables
 
@@ -189,10 +189,10 @@ tracker-hub/
 PORT=1337
 HOST=0.0.0.0
 
-# MongoDB Bağlantısı
-# Authentication gerektiren MongoDB için:
+# MongoDB Connection
+# For MongoDB with authentication:
 MONGO_URI=mongodb://trackr:trackr@localhost:27017/trackrdb?authSource=admin
-# Authentication gerektirmeyen MongoDB için:
+# For MongoDB without authentication:
 # MONGO_URI=mongodb://localhost:27017/trackrdb
 
 CORS_ORIGIN=http://localhost:5173
@@ -201,10 +201,10 @@ CORS_ORIGIN=http://localhost:5173
 VITE_API_URL=http://localhost:1337
 ```
 
-### MongoDB Kurulumu
+### MongoDB Setup
 
 ```bash
-# Docker ile MongoDB (authentication ile)
+# MongoDB with Docker (with authentication)
 docker run -d --name mongodb \
   -e MONGO_INITDB_ROOT_USERNAME=trackr \
   -e MONGO_INITDB_ROOT_PASSWORD=trackr \
@@ -212,54 +212,54 @@ docker run -d --name mongodb \
   -p 27017:27017 \
   mongo:7
 
-# veya authentication olmadan
+# or without authentication
 docker run -d --name mongodb -p 27017:27017 mongo:7
 ```
 
 ---
 
-## 📝 API Reference
+##  API Reference
 
 ### Sessions
 
-| Method | Endpoint | Açıklama |
-|--------|----------|----------|
-| `GET` | `/sessions` | Tüm session'ları listele |
-| `GET` | `/sessions/:id` | Tek session detayı |
-| `GET` | `/sessions/stats` | Global istatistikler |
-| `POST` | `/sessions` | Yeni session oluştur |
-| `PATCH` | `/sessions/:id` | Session güncelle |
-| `DELETE` | `/sessions/:id` | Session sil |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/sessions` | List all sessions |
+| `GET` | `/sessions/:id` | Get session details |
+| `GET` | `/sessions/stats` | Get global statistics |
+| `POST` | `/sessions` | Create new session |
+| `PATCH` | `/sessions/:id` | Update session |
+| `DELETE` | `/sessions/:id` | Delete session |
 
 ---
 
-## 🤝 Katkıda Bulunma
+##  Contributing
 
-Katkılarınızı memnuniyetle karşılıyoruz! Lütfen [CONTRIBUTING.md](CONTRIBUTING.md) dosyasını okuyun.
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-1. Fork'layın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit'leyin (`git commit -m 'feat: Add amazing feature'`)
-4. Branch'inizi push'layın (`git push origin feature/amazing-feature`)
-5. Pull Request açın
-
----
-
-## 📄 Lisans
-
-Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ---
 
-## 🙏 Teşekkürler
+##  License
 
-- [rrweb](https://github.com/rrweb-io/rrweb) - Session replay teknolojisi
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+##  Acknowledgments
+
+- [rrweb](https://github.com/rrweb-io/rrweb) - Session replay technology
 - [NestJS](https://nestjs.com/) - Backend framework
-- [React](https://react.dev/) - UI kütüphanesi
+- [React](https://react.dev/) - UI library
 - [Tailwind CSS](https://tailwindcss.com/) - CSS framework
 
 ---
 
 <p align="center">
-  Made with ❤️ in Turkey
+  Made with  in Turkey
 </p>

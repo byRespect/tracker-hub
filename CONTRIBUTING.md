@@ -1,103 +1,102 @@
-# Tracker Hub'a Katkıda Bulunma
+﻿# Contributing to Tracker Hub
 
-Tracker Hub'a katkıda bulunmak istediğiniz için teşekkürler! 🎉
+Thanks for your interest in contributing to Tracker Hub!
 
-## 📋 Başlamadan Önce
+## Before You Start
 
-1. Bu repository'yi fork'layın
-2. Lokal makinenize klonlayın
-3. `pnpm install` ile bağımlılıkları yükleyin
+1. Fork this repository
+2. Clone it to your local machine
+3. Run `pnpm install` to install dependencies
 
-## 🔧 Geliştirme Ortamı
+## Development Environment
 
 ```bash
-# Bağımlılıkları yükle
+# Install dependencies
 pnpm install
 
-# Tüm paketleri derle
+# Build all packages
 pnpm build
 
-# Development modunda çalıştır
+# Run in development mode
 pnpm --filter dashboard dev
 pnpm --filter backend start:dev
 ```
 
-## 📝 Commit Mesajları
+## Commit Messages
 
-[Conventional Commits](https://www.conventionalcommits.org/) formatını kullanıyoruz:
+We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
 
 ```
-<tip>(<kapsam>): <açıklama>
+<type>(<scope>): <description>
 
-[isteğe bağlı gövde]
+[optional body]
 
-[isteğe bağlı dipnot]
+[optional footer]
 ```
 
-### Tipler
+### Types
 
-- `feat`: Yeni özellik
-- `fix`: Bug düzeltmesi
-- `docs`: Dokümantasyon değişiklikleri
-- `style`: Kod formatı değişiklikleri
-- `refactor`: Refactoring
-- `test`: Test ekleme/düzeltme
-- `chore`: Build, araç değişiklikleri
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code formatting changes
+- `refactor`: Code refactoring
+- `test`: Adding or fixing tests
+- `chore`: Build or tooling changes
 
-### Örnekler
+### Examples
 
 ```bash
-feat(dashboard): session filtreleme özelliği eklendi
-fix(backend): pagination offset hatası düzeltildi
-docs(readme): kurulum adımları güncellendi
+feat(dashboard): add session filtering feature
+fix(backend): resolve pagination offset issue
+docs(readme): update installation steps
 ```
 
-## 🌿 Branch Stratejisi
+## Branch Strategy
 
-- `main` - Production-ready kod
-- `develop` - Geliştirme branch'i
-- `feature/*` - Yeni özellikler
-- `fix/*` - Bug düzeltmeleri
-- `docs/*` - Dokümantasyon
+- `main` - Production-ready code
+- `develop` - Development branch
+- `feature/*` - New features
+- `fix/*` - Bug fixes
+- `docs/*` - Documentation updates
 
-## 🔍 Pull Request Süreci
+## Pull Request Process
 
-1. `develop` branch'inden yeni bir branch oluşturun
-2. Değişikliklerinizi yapın
-3. Testlerin geçtiğinden emin olun
-4. `pnpm build` ile build'in başarılı olduğunu doğrulayın
-5. Pull Request açın
+1. Create a new branch from `develop`
+2. Make your changes
+3. Ensure all tests pass
+4. Verify the build succeeds with `pnpm build`
+5. Open a Pull Request
 
-### PR Kontrol Listesi
+### PR Checklist
 
-- [ ] Kod standartlarına uygun
-- [ ] Build başarılı
-- [ ] Testler geçiyor
-- [ ] Dokümantasyon güncellendi (gerekiyorsa)
-- [ ] Commit mesajları Conventional Commits formatında
+- [ ] Code follows project style guidelines
+- [ ] Build passes successfully
+- [ ] Tests are passing
+- [ ] Documentation updated (if needed)
+- [ ] Commit messages follow Conventional Commits format
 
-## 📁 Proje Yapısı
+## Project Structure
 
 ```
 packages/
-├── core/       # Tracker SDK
-├── dashboard/  # Admin paneli
-├── backend/    # API sunucusu
-└── frontend/   # Demo uygulaması
+ core/       # Tracker SDK
+ dashboard/  # Admin panel
+ backend/    # API server
+ frontend/   # Demo application
 ```
 
-## 🎨 Kod Standartları
+## Code Standards
 
-- TypeScript strict mode
-- Türkçe yorumlar, İngilizce teknik terimler
-- React component'leri için `React.FC<Props>` pattern
-- API çağrıları `api/` klasöründen
-- State yönetimi `store/` klasöründen
+- TypeScript strict mode enabled
+- Use `React.FC<Props>` pattern for React components
+- API calls go in the `api/` directory
+- State management lives in `store/`
 
-## ❓ Sorular
+## Questions
 
-Sorularınız için GitHub Issues kullanabilir veya tartışma başlatabilirsiniz.
+Feel free to open a GitHub Issue or start a discussion if you have any questions.
 
 ---
 
-Katkılarınız için teşekkürler! 🙏
+Thanks for contributing!

@@ -1,34 +1,34 @@
-## 📝 Açıklama
+﻿## Description
 
-Bu PR'ın ne yaptığını kısaca açıklayın.
+Briefly describe what this PR does.
 
-## 🔗 İlgili Issue
+## Related Issue
 
-Fixes #(issue numarası)
+Fixes #(issue number)
 
-## 🧪 Test Adımları
+## Test Steps
 
 1. ...
 2. ...
 3. ...
 
-## 📸 Ekran Görüntüleri (opsiyonel)
+## Screenshots (optional)
 
-UI değişiklikleri varsa ekleyin.
+Include screenshots if there are UI changes.
 
-## ✅ Kontrol Listesi
+## Checklist
 
-- [ ] Kodum projenin stil kurallarına uyuyor
-- [ ] Self-review yaptım
-- [ ] Gerekli yerlere yorum ekledim
-- [ ] Dokümantasyonu güncelledim
-- [ ] Değişikliklerim yeni warning üretmiyor
-- [ ] Build başarılı (`pnpm build`)
+- [ ] My code follows the project style guidelines
+- [ ] I have performed a self-review
+- [ ] I have added comments where necessary
+- [ ] I have updated the documentation
+- [ ] My changes do not generate new warnings
+- [ ] Build passes (`pnpm build`)
 
-## 📋 Değişiklik Türü
+## Change Type
 
-- [ ] 🐛 Bug fix
-- [ ] ✨ Yeni özellik
-- [ ] 💥 Breaking change
-- [ ] 📝 Dokümantasyon
-- [ ] 🔧 Refactoring
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Breaking change
+- [ ] Documentation
+- [ ] Refactoring

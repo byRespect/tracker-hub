@@ -1,16 +1,16 @@
-# Tracker Hub Dashboard
+﻿# Tracker Hub Dashboard
 
-Session replay ve telemetri monitoring için profesyonel React dashboard uygulaması.
+Admin panel for session replay and telemetry monitoring.
 
-## Özellikler
+## Features
 
-- 🎬 **Session Replay** - rrweb ile DOM event kayıt ve oynatma
-- 📊 **Network Monitoring** - HTTP/WebSocket istek takibi
-- 🔍 **Console Logs** - Hata ve log görüntüleyici
-- 🤖 **AI Analiz** - Gemini ile otomatik hata analizi
-- 📱 **Responsive** - Mobil uyumlu arayüz
+- **Session Replay** - DOM event recording and playback with rrweb
+- **Network Monitoring** - HTTP/WebSocket request tracking
+- **Console Logs** - Error and log viewer
+- **AI Analysis** - Automatic error analysis with Gemini
+- **Responsive** - Mobile-friendly interface
 
-## Teknolojiler
+## Technologies
 
 - React 19 + TypeScript
 - Vite 6
@@ -18,10 +18,10 @@ Session replay ve telemetri monitoring için profesyonel React dashboard uygulam
 - rrweb-player
 - Lucide React Icons
 
-## Kurulum
+## Installation
 
 ```bash
-# Bağımlılıkları yükle
+# Install dependencies
 pnpm install
 
 # Development server
@@ -31,32 +31,32 @@ pnpm dev
 pnpm build
 ```
 
-## Ortam Değişkenleri
+## Environment Variables
 
-`.env.local` dosyası oluşturun:
+Create a `.env.local` file:
 
 ```env
 VITE_API_URL=http://localhost:1337
 GEMINI_API_KEY=your-api-key
 ```
 
-## Proje Yapısı
+## Project Structure
 
 ```
 src/
-├── api/           # HTTP client ve endpoint'ler
-├── components/    # React bileşenleri
-├── config/        # Uygulama konfigürasyonu
-├── constants/     # Sabit değerler
-├── hooks/         # Custom React hooks
-├── services/      # Harici servisler (Gemini)
-├── store/         # State management (Context)
-├── types/         # TypeScript tip tanımları
-└── utils/         # Yardımcı fonksiyonlar
+ api/           # HTTP client and endpoints
+ components/    # React components
+ config/        # Application configuration
+ constants/     # Constant values
+ hooks/         # Custom React hooks
+ services/      # External services (Gemini)
+ store/         # State management (Context)
+ types/         # TypeScript type definitions
+ utils/         # Utility functions
 ```
 
-Detaylı mimari bilgisi için [ARCHITECTURE.md](./ARCHITECTURE.md) dosyasına bakın.
+For detailed architecture information, see [ARCHITECTURE.md](./ARCHITECTURE.md).
 
-## Lisans
+## License
 
 MIT

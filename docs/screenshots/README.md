@@ -1,3 +1,3 @@
-# Screenshots
+﻿# Screenshots
 
-Bu klasöre dashboard ekran görüntüleri ekleyin.
+Add dashboard screenshots to this folder.

@@ -1,27 +1,27 @@
----
+﻿---
 name: Feature Request
-about: Yeni bir özellik önermek için bu şablonu kullanın
+about: Use this template to suggest a new feature
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
 ---
 
-## 🚀 Özellik Açıklaması
+## Feature Description
 
-Önerdiğiniz özelliği açıklayın.
+Describe the feature you are proposing.
 
-## 💡 Motivasyon
+## Motivation
 
-Bu özellik neden gerekli? Hangi problemi çözüyor?
+Why is this feature needed? What problem does it solve?
 
-## 📋 Önerilen Çözüm
+## Proposed Solution
 
-Nasıl çalışmasını istediğinizi açıklayın.
+Describe how you want it to work.
 
-## 🔄 Alternatifler
+## Alternatives
 
-Düşündüğünüz alternatif çözümler.
+Any alternative solutions you have considered.
 
-## 📝 Ek Notlar
+## Additional Notes
 
-Eklemek istediğiniz başka bilgiler veya ekran görüntüleri.
+Any other information or screenshots you want to add.
