@@ -10,6 +10,21 @@ Thanks for your interest in contributing to Tracker Hub!
 
 ## Development Environment
 
+### Option 1: Docker (Recommended)
+
+```bash
+# Start all services
+docker compose up -d
+
+# View logs
+docker compose logs -f
+
+# Rebuild after changes
+docker compose build --no-cache && docker compose up -d
+```
+
+### Option 2: Local Development
+
 ```bash
 # Install dependencies
 pnpm install

@@ -4,6 +4,7 @@
   <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS">
   <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
 </p>
 
 <h1 align="center">🔍 Tracker Hub</h1>
@@ -34,6 +35,7 @@
   <a href="#-features">Features</a> •
   <a href="#-demo">Demo</a> •
   <a href="#-installation">Installation</a> •
+  <a href="#-docker">Docker</a> •
   <a href="#-usage">Usage</a> •
   <a href="#-architecture">Architecture</a> •
   <a href="#-contributing">Contributing</a>
@@ -79,6 +81,7 @@
 - **Node.js** >= 18.x
 - **pnpm** >= 8.x
 - **MongoDB** >= 6.x
+- **Docker** >= 20.x (optional, for containerized deployment)
 
 ### Steps
 
@@ -95,6 +98,84 @@ cp .env.example .env
 
 # Build all packages
 pnpm build
+```
+
+---
+
+## 🐳 Docker
+
+### Quick Start with Docker Compose
+
+The easiest way to run the entire stack:
+
+```bash
+# Clone the repository
+git clone https://github.com/byRespect/tracker-hub.git
+cd tracker-hub
+
+# Start all services
+docker compose up -d
+
+# Check status
+docker compose ps
+```
+
+### Services
+
+| Service | URL | Description |
+|---------|-----|-------------|
+| **Backend API** | http://localhost:1337 | NestJS REST API |
+| **Frontend** | http://localhost:3000 | React demo application |
+| **Dashboard** | http://localhost:3001 | Admin panel |
+| **MongoDB** | localhost:27018 | Database (internal: 27017) |
+
+### Docker Commands
+
+```bash
+# Start all services in background
+docker compose up -d
+
+# View logs
+docker compose logs -f
+
+# View specific service logs
+docker compose logs -f backend
+
+# Stop all services
+docker compose down
+
+# Rebuild images (after code changes)
+docker compose build --no-cache
+docker compose up -d
+
+# Remove all data (including volumes)
+docker compose down -v
+```
+
+### Build Individual Images
+
+```bash
+# Build only backend
+docker compose build backend
+
+# Build only frontend
+docker compose build frontend
+
+# Build only dashboard
+docker compose build dashboard
+```
+
+### Health Checks
+
+```bash
+# Check backend health
+curl http://localhost:1337/health
+
+# Check frontend
+curl http://localhost:3000/health
+
+# Check dashboard
+curl http://localhost:3001/health
 ```
 
 ---
@@ -213,6 +294,15 @@ VITE_API_URL=http://localhost:1337
 ```
 
 ### MongoDB Setup
+
+**Option 1: Using Docker Compose (Recommended)**
+
+```bash
+# Starts MongoDB with authentication automatically
+docker compose up -d mongodb
+```
+
+**Option 2: Standalone MongoDB Container**
 
 ```bash
 # MongoDB with Docker (with authentication)

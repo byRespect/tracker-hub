@@ -20,6 +20,17 @@ Admin panel for session replay and telemetry monitoring.
 
 ## Installation
 
+### Option 1: Docker (Recommended)
+
+```bash
+# From project root
+docker compose up -d dashboard
+
+# Access at http://localhost:3001
+```
+
+### Option 2: Local Development
+
 ```bash
 # Install dependencies
 pnpm install
