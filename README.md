@@ -6,26 +6,37 @@
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
 </p>
 
-<h1 align="center"> Tracker Hub</h1>
+<h1 align="center">🔍 Tracker Hub</h1>
 
 <p align="center">
   <strong>A powerful telemetry platform for recording and analyzing user sessions</strong>
 </p>
 
 <p align="center">
-  <a href="#-features">Features</a> 
-  <a href="#-demo">Demo</a> 
-  <a href="#-installation">Installation</a> 
-  <a href="#-usage">Usage</a> 
-  <a href="#-architecture">Architecture</a> 
-  <a href="#-contributing">Contributing</a>
+  <a href="https://github.com/byRespect/tracker-hub/actions/workflows/ci.yml">
+    <img src="https://github.com/byRespect/tracker-hub/actions/workflows/ci.yml/badge.svg" alt="CI">
+  </a>
+  <a href="https://github.com/byRespect/tracker-hub/actions/workflows/codeql.yml">
+    <img src="https://github.com/byRespect/tracker-hub/actions/workflows/codeql.yml/badge.svg" alt="CodeQL">
+  </a>
+  <a href="https://github.com/byRespect/tracker-hub/releases">
+    <img src="https://img.shields.io/github/v/release/byRespect/tracker-hub?include_prereleases" alt="Release">
+  </a>
+  <a href="https://github.com/byRespect/tracker-hub/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/byRespect/tracker-hub" alt="License">
+  </a>
+  <a href="https://github.com/byRespect/tracker-hub/stargazers">
+    <img src="https://img.shields.io/github/stars/byRespect/tracker-hub" alt="Stars">
+  </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version">
-  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
-  <img src="https://img.shields.io/badge/pnpm-workspace-F69220?logo=pnpm" alt="pnpm workspace">
+  <a href="#-features">Features</a> •
+  <a href="#-demo">Demo</a> •
+  <a href="#-installation">Installation</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-contributing">Contributing</a>
 </p>
 
 ---
