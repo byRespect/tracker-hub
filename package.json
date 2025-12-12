@@ -1,8 +1,8 @@
 {
   "name": "tracker-hub",
   "private": true,
-  "version": "0.0.0",
-  "packageManager": "pnpm@8.15.0",
+  "version": "1.0.0",
+  "packageManager": "pnpm@9.15.0",
   "scripts": {
     "bootstrap": "pnpm install",
     "build": "pnpm -r build",
@@ -11,7 +11,14 @@
     "dev:frontend": "pnpm --filter frontend dev",
     "dev:backend": "pnpm --filter backend start:dev",
     "dev:dashboard": "pnpm --filter dashboard dev",
-    "test": "pnpm -r test --if-present"
+    "test": "pnpm -r test --if-present",
+    "typecheck": "pnpm -r exec tsc --noEmit",
+    "release:core": "pnpm --filter @tracker/core build && pnpm --filter @tracker/core pack",
+    "clean": "pnpm -r exec rm -rf dist node_modules"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.2.1",
